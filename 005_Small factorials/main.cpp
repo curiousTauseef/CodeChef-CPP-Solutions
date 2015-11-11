@@ -25,13 +25,34 @@ int main()
 void factorial(int i_num)
 {
 	int fact[200];
+	int temp = 0;
+	int digits = 1;
+	int carry;
+	int mul;
+	int j; //Array Counter
 
-	for (int i = 2; i <= i_num; i++)
+	fact[0] = 1;
+
+	for (mul = 2; mul <= i_num; mul++)
 	{
-		fact *= i;
+		for (j = 0; j < digits; j++)
+		{
+			carry = fact[j] * mul + temp;
+			fact[j] = carry % 10;
+			temp = carry / 10;
+		}
+
+		while (temp > 0)
+		{
+			fact[digits] = temp % 10;
+			temp = temp / 10;
+			digits++;
+		}
 	}
 
-	cout << fact << endl;
-
-	//return fact;
+	for (j = digits - 1; j >= 0; j--)
+	{
+		cout << fact[j];
+	}
+	cout << endl;
 }
