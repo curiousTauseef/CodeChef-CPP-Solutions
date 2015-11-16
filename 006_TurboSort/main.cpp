@@ -15,7 +15,8 @@ int main()
 
 	cin >> t;
 
-	int * n = new int[t];
+	int n[1000000];
+	//int * n = new int[t];
 
 	for (i = 0; i < t; i++)
 	{
@@ -29,12 +30,12 @@ int main()
 		cout << n[i] << endl;
 	}
 
-	free(n);
-
+	//free(n);
+	/*
 #if defined(_DEBUG)
 	_CrtDumpMemoryLeaks();
 #endif // _DEBUG
-
+	*/
 	system("PAUSE");
 }
 
@@ -57,7 +58,8 @@ void Merge(int *i_n, int low, int high, int mid)
 	k = low;
 	j = mid + 1;
 
-	int * scratch = new int[high];
+	int scratch[1000000];
+	//int * scratch = new int[high+1];
 
 	while (i <= mid && j <= high)
 	{
@@ -91,5 +93,5 @@ void Merge(int *i_n, int low, int high, int mid)
 		i_n[i] = scratch[i];
 	}
 
-	free(scratch);
+	//free(scratch);
 }
